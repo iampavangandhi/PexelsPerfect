@@ -38,8 +38,12 @@ function App() {
           totalResponses: response.total_results,
           photos: response.photos,
         });
+      } else {
+        setPexelsResponse({
+          totalResponses: 0,
+          photos: [],
+        });
       }
-
       setLoading(false);
     }
     fetchData();
@@ -90,6 +94,7 @@ function App() {
       />
       <ImagesSection loading={loading} pexelsResponse={pexelsResponse} />
       <Controls
+        loading={loading}
         pexelsResponse={pexelsResponse}
         query={query}
         setQuery={setQuery}

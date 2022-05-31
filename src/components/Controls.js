@@ -1,6 +1,7 @@
 import React from "react";
 
 function Controls({
+  loading,
   pexelsResponse,
   query,
   setQuery,
@@ -26,14 +27,16 @@ function Controls({
 
   return (
     <div className="flex m-4" id="controls">
-      {query.page > 1 ? (
+      {query.page > 1 && (
         <button
           className="text-white font-semibold m-2 px-5 py-3 rounded bg-blue-600 hover:bg-blue-700"
           onClick={() => prev()}
         >
           Prev
         </button>
-      ): (
+      )}
+
+      {query.page === 1 && (
         <button className="text-gray-400 cursor-not-allowed font-semibold m-2 px-5 py-3 rounded border-4 border-gray-300">
           Prev
         </button>
@@ -43,14 +46,16 @@ function Controls({
         {query.page}
       </div>
 
-      {pexelsResponse.totalResponses - query.page * 20 > 20 ? (
+      {pexelsResponse.totalResponses - query.page * 20 > 20 && (
         <button
           className="text-white font-semibold m-2 px-5 py-3 rounded bg-blue-600 hover:bg-blue-700"
           onClick={() => next()}
         >
           Next
         </button>
-      ): (
+      )}
+
+      {!(pexelsResponse.totalResponses - query.page * 20 > 20) && (
         <button className="text-gray-400 cursor-not-allowed font-semibold m-2 px-5 py-3 rounded border-4 border-gray-300">
           Next
         </button>
