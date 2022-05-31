@@ -71,7 +71,6 @@ function App() {
       setQuery(() => {
         return { page: 1, searchTerm: value };
       });
-      console.log('ran')
     }, 4000),
     []
   );
