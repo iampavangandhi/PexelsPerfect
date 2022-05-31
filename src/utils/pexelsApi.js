@@ -1,6 +1,7 @@
 import { createClient } from "pexels";
 
-const { REACT_APP_PEXELS_API_KEY } = process.env;
+// TODO: Remove this after testing
+const REACT_APP_PEXELS_API_KEY = "563492ad6f917000010000019d58ba3eb0634945adfb4704f73c4255";
 
 export default async function pexelsApi(page = 1, query = "animals") {
   const client = createClient(REACT_APP_PEXELS_API_KEY);
